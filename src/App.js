@@ -1,25 +1,21 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from 'react'
+import {ThemeProvider} from '@material-ui/core/styles'
+import './App.css'
+import Main from './pages/Routes'
+import Header from './components/layout/Header/Header'
 
 function App() {
-  const [message, setMessage] = useState(false);
-  const clickHandler = () => {
-    setMessage(true);
-  };
-  return (
-    <div className="App">
-      <header className="App-header">
-        {!message ? (
-          <button type="button" onClick={() => clickHandler()}>
-            Click me!
-          </button>
-        ) : (
-          `Anton don't worry, be happy! You'll finish this task and get this fucking job!!!`
-        )}
-      </header>
-    </div>
-  );
+	const theme = {
+		// palette: {
+		// 	type: prefersDarkMode ? 'dark' : 'light'
+		// }
+	}
+	return (
+		<ThemeProvider theme={theme}>
+			<Header />
+			<Main />
+		</ThemeProvider>
+	)
 }
 
-export default App;
+export default App
