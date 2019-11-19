@@ -1,14 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter as Router} from 'react-router-dom'
+import {ThemeProvider} from '@material-ui/core/styles'
+import {Provider} from 'react-redux'
+import {store} from './_helpers/store'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
+const theme = {}
+
 ReactDOM.render(
-	<Router>
-		<App />
-	</Router>,
+	<Provider store={store}>
+		<ThemeProvider>
+			<Router>
+				<App />
+			</Router>
+		</ThemeProvider>
+	</Provider>,
 	document.getElementById('root')
 )
 
